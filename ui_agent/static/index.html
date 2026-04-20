@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slovio AI Agent</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1><span>⚡</span> Slovio</h1>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span id="statusText">Ready</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-item active" data-view="chat">
+          <span class="nav-icon">💬</span>
+          <span>Chat</span>
+        </div>
+        <div class="nav-item" data-view="automation">
+          <span class="nav-icon">🤖</span>
+          <span>Automation</span>
+        </div>
+        <div class="nav-item" data-view="screenshots">
+          <span class="nav-icon">📸</span>
+          <span>Screenshots</span>
+        </div>
+        <div class="nav-item" data-view="logs">
+          <span class="nav-icon">📋</span>
+          <span>Logs</span>
+        </div>
+        <div class="nav-item" data-view="settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Settings</span>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="nav-item">
+          <span class="nav-icon">❓</span>
+          <span>Help</span>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Chat Area -->
+    <main class="main-area">
+      <header class="chat-header">
+        <div class="chat-title">AI Assistant</div>
+        <div class="header-actions">
+          <button class="header-btn" id="clearBtn">Clear</button>
+          <button class="header-btn" id="screenshotBtn">📸 Screenshot</button>
+        </div>
+      </header>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg assistant">
+          <div class="msg-avatar">🤖</div>
+          <div class="msg-content">
+            <div class="msg-bubble">
+              Hello! I'm Slovio, your AI assistant with full PC control. 
+              I can open apps, click buttons, type text, and more.
+              <br><br>
+              Try commands like:
+              <br>• "Open calculator"
+              <br>• "Search for Python tutorials"
+              <br>• "Click on the login button"
+            </div>
+            <div class="msg-time">Just now</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="typing-indicator" id="typingIndicator">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+      </div>
+      
+      <div class="chat-input-container">
+        <div class="input-wrapper">
+          <textarea id="chatInput" placeholder="Type your command..." rows="1"></textarea>
+          <div class="input-actions">
+            <button class="input-action-btn" id="voiceBtn" title="Voice input">🎤</button>
+            <button class="input-action-btn" id="screenshotInputBtn" title="Take screenshot">📷</button>
+          </div>
+          <button id="sendBtn">Send</button>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Right Panel -->
+    <aside class="right-panel">
+      <div class="panel-header">Live Screen</div>
+      <div class="screenshot-view" id="screenshotView">
+        <img id="screenshotImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect fill='%2321262d' width='400' height='225'/%3E%3Ctext fill='%238b949e' x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='14'%3ENo screenshot%3C/text%3E%3C/svg%3E" alt="Screen">
+      </div>
+      
+      <div class="panel-header">Activity Log</div>
+      <div class="logs-panel" id="logsPanel">
+        <div class="log-entry info">System initialized</div>
+      </div>
+      
+      <div class="panel-header">Quick Actions</div>
+      <div class="quick-actions">
+        <button class="quick-action-btn" data-command="open calculator">🧮 Calculator</button>
+        <button class="quick-action-btn" data-command="open browser">🌐 Browser</button>
+        <button class="quick-action-btn" data-command="open terminal">💻 Terminal</button>
+        <button class="quick-action-btn" data-command="take screenshot">📸 Screenshot</button>
+      </div>
+    </aside>
+  </div>
+  
+  <script src="/static/app.js"></script>
+</body>
+</html>
